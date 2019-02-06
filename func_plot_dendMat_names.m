@@ -38,7 +38,7 @@ xtickangle(45);
 cc = cc+1;
 sp = subplot(numMats,2,cc);
 
-if length(mats{i}) < 11
+if length(mats{i}) < 20
     add_numbers_to_mat(mats{i}(ord,ord),lbls{i}(ord));
 else
 add_numbers_to_mat(mats{i}(ord,ord),lbls{i}(ord),'nonum');
