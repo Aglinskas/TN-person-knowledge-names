@@ -13,8 +13,9 @@ for m = 1:nmodels
 use_model = model{m};
 use_data = data;
 
-use_data = atanh(use_data);
+%use_data = atanh(use_data);
 drop_inds = sum(use_model,2)==0;
+
 % Not use empty cells
     use_model(drop_inds,:) = [];
     use_model(:,drop_inds) = [];
@@ -22,6 +23,11 @@ drop_inds = sum(use_model,2)==0;
     use_data(:,drop_inds,:) = [];
 
 for s = 1:size(data,3)
+
+% Davids Way    
+%use_model = use_model - mean(mean(use_model));
+%use_data(:,:,s) = use_data(:,:,s) - mean(mean(use_data(:,:,s)));
+
 v1 = get_triu(use_model)';
     v1 = v1-mean(v1);
 v2 = get_triu(use_data(:,:,s))';

@@ -12,8 +12,8 @@ for t2 = 1:5
 v1 = squeeze(tiny.mat(ismember(tiny.rlbls,roi),t1,:));
 v2 = squeeze(tiny.mat(ismember(tiny.rlbls,roi),t2,:));
 
-t_thresh = 2.069; % p < .05
-%t_thresh = 3.104; % p < .005 == bonferroni correction for 10 comparisons
+%t_thresh = 2.069; % p < .05
+t_thresh = 3.104; % p < .005 == bonferroni correction for 10 comparisons
 %t_thresh = 3.767; % p < .001
 
 [H,P,CI,STATS] = ttest(v1,v2);

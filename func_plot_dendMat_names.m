@@ -22,6 +22,7 @@ sp = subplot(numMats,2,cc);
 %mats{i} = atanh(mats{i}); % Fisher Transformation
 
 Y = 1-get_triu(mats{i});
+%Y = Y.^2;
 Z = linkage(Y,'ward');
 [h x perm] = dendrogram(Z,0,'labels',lbls{i});
 ylabel('dissimilarity (a.u)')
@@ -43,6 +44,7 @@ if length(mats{i}) < 20
 else
 add_numbers_to_mat(mats{i}(ord,ord),lbls{i}(ord),'nonum');
 end
+sp.TickDir = 'out';
 colorbar
 
 xtickangle(45)
